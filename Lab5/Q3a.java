@@ -1,36 +1,41 @@
-//Create a base class called shape which has two double type properties and a function setdata which is used to set the values of those two properties. There should be another member function display_area() in shape to compute and display the area of figures. Derive two specific classes called triangle and rectangle from the base shape. Use these three classes that implements the idea of dynamic method dispatch. 
+//(a) Create an abstract class named Store. Store will have one non-abstract function showItem() and two abstract functions get_price() and display_info(). Create two derived classes Bookstore and Ricestore. In the main() function, design Store class in such a way that implements the idea of abstraction.
 
-class shape {
-    double a, b;
-    void setdata(double a, double b) {
-        this.a = a;
-        this.b = b;
+abstract class Store {
+    void showItem() {
+        System.out.println("Item is shown");
     }
-    void display_area() {
-        System.out.println("Area is: ");
+
+    abstract void get_price();
+    abstract void display_info();
+}
+
+class Bookstore extends Store {
+    void get_price() {
+        System.out.println("Price of the book is 100");
+    }
+    void display_info() {
+        System.out.println("Book is displayed");
     }
 }
 
-class triangle extends shape {
-    void display_area() {
-        System.out.println("Area of triangle is: " + 0.5 * a * b);
+class Ricestore extends Store {
+    void get_price() {
+        System.out.println("Price of the rice is 50");
     }
-}
-
-class rectangle extends shape {
-    void display_area() {
-        System.out.println("Area of rectangle is: " + a * b);
+    void display_info() {
+        System.out.println("Rice is displayed");
     }
 }
 
 public class Q3a {
     public static void main(String[] args) {
-        shape s;
-        s = new triangle();
-        s.setdata(15, 24);
-        s.display_area();
-        s = new rectangle();
-        s.setdata(15, 24);
-        s.display_area();
+        Bookstore b = new Bookstore(); // obj
+        Ricestore r = new Ricestore();
+        b.showItem();
+        b.get_price();
+        b.display_info();
+        r.showItem();
+        r.get_price();
+        r.display_info();
     }
 }
