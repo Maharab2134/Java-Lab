@@ -2,14 +2,14 @@
 
 abstract class Store {
     void showItem() {
-        System.out.println("Item is shown");
+        System.out.println("Item is show");
     }
 
     abstract void get_price();
     abstract void display_info();
 }
 
-class Bookstore extends Store {
+class Bookstore extends Store { // derived class
     void get_price() {
         System.out.println("Price of the book is 100");
     }
@@ -18,7 +18,7 @@ class Bookstore extends Store {
     }
 }
 
-class Ricestore extends Store {
+class Rice_store extends Store {
     void get_price() {
         System.out.println("Price of the rice is 50");
     }
@@ -29,13 +29,13 @@ class Ricestore extends Store {
 
 public class Q3a {
     public static void main(String[] args) {
-        Bookstore b = new Bookstore(); // obj
-        Ricestore r = new Ricestore();
-        b.showItem();
-        b.get_price();
-        b.display_info();
-        r.showItem();
-        r.get_price();
-        r.display_info();
+        Bookstore B = new Bookstore(); // obj
+        Rice_store R = new Rice_store();
+        B.showItem();
+        B.get_price();
+        B.display_info();
+        R.showItem();
+        R.get_price();
+        R.display_info();
     }
 }
